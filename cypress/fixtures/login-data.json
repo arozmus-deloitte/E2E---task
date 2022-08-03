@@ -1,4 +1,13 @@
-{
+[
+    {
     "email": "user2000@mail.com",
-    "password": "password"
-}
+    "password": "password",
+    "name": "Aleksandra Rozmus"
+    },
+
+    {
+    "email": "user2001@mail.com",
+    "password": "password",
+    "name": "aleksandra rozmaryn"
+    }
+]
