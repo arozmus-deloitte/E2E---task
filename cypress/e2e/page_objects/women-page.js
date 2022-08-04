@@ -5,28 +5,24 @@ export class WomenPage {
     }
 
     static checkIfWomenCategoryIsOpen() {
-        cy.get('#center_column > h1').contains('Women');
+        cy.url().should('eq', 'http://automationpractice.com/index.php?id_category=3&controller=category');
     }
 
-    static addElementToCart(number) {
-
-        let price = Cypress.$(`.product_list > :nth-child(${number}) .price`);
-        cy.get(".product_list > :nth-child(" + number + ")").contains('Add to cart').click();
-        console.log(price[0].innerHTML.trim());
-        return price[0].innerHTML.trim();
+    static addElementToCartById(productId) {
+        cy.get(".product_list > :nth-child(" + productId + ")").contains('Add to cart').click();
     }
 
     static clickContinueShopping() {
-        cy.get('.continue').contains("Continue").click();
         cy.wait(6000);
+        cy.get('.continue').contains('Continue shopping').click();
     }
 
     static clickProccedShopping() {
-        cy.get('.button-medium').contains("Proceed").click();
         cy.wait(6000);
+        cy.get('.button-medium').contains("Proceed").click();
     }
 
-    static checkIfConfirmationIsOpen() {
-        cy.get('#layer_cart > div.clearfix > div.layer_cart_product.col-xs-12.col-md-6 > h2').contains('Product successfully added to your shopping cart');
+    static checkIfShoppinCartSummaryIsOpen() {
+        cy.url().should('eq', 'http://automationpractice.com/index.php?controller=order');
     }
 }

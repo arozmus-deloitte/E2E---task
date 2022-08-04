@@ -4,11 +4,11 @@ export class ShoppingCartPage {
         cy.visit("http://automationpractice.com/index.php?controller=order");
     }
 
-    static searchFirstPrice(i, price) {
-        cy.get(`tbody > :nth-child(${i}) .cart_unit > .price .price`).invoke('text').should('eq', price);
+    static checkIfProductsPriceIsCorrect(index, price) {
+        cy.get(`#cart_summary > tbody > :nth-child(${index}) > .cart_unit > .price`).find('.price').should('have.text', price);
     }
 
-    static searchTotalPrice(price) {
+    static checkIfTotalPriceIsCorrect(price) {
         let total = cy.get('#total_product').invoke('text').should('eq', price);
     }
 }
