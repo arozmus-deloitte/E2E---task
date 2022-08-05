@@ -32,4 +32,8 @@ export class WomenPage {
         console.log(price[0].innerHTML.trim());
         return price[0].innerHTML.trim();
     }
+
+    static addElementToCartByName(productName) {
+        cy.get(".product_list").find(".product-container").contains(productName).parents('.product-container').contains('Add to cart').click();
+    }
 }

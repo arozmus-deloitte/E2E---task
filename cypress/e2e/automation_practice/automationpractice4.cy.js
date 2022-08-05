@@ -18,12 +18,12 @@ context('e-shop go to', () => {
       })
     })
 
-    it('Should add 2 products from json to cart', () => {
+    it('Should add 2 products by name from json to cart', () => {
       WomenPage.openWomenCategory();
       WomenPage.checkIfWomenCategoryIsOpen();
-      WomenPage.addElementToCartById(data[0].id);
+      WomenPage.addElementToCartByName(data[0].name);
       WomenPage.clickContinueShopping();
-      WomenPage.addElementToCartById(data[1].id);
+      WomenPage.addElementToCartByName(data[1].name);
       WomenPage.clickProccedShopping();
       WomenPage.checkIfShoppinCartSummaryIsOpen();
       ShoppingCartPage.checkIfProductsPriceIsCorrect(1, "$" + data[0].price.toFixed(2));
