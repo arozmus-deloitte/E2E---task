@@ -18,14 +18,14 @@ context('e-shop go to', () => {
     })
 
     it('should log in and log out', () => {
-      for (let i = 0; i < Object.keys(data).length; i++) {
+      data.forEach(data => {
         MainPage.clickSignInButton();
         LoginPage.checkIfAuthenticationPageIsOpen();
-        LoginPage.inputAccountData(data[i].email,data[i].password)
+        LoginPage.inputAccountData(data.email,data.password)
         LoginPage.clickLogInButton();
-        LoginPage.checkIfCorrectUserIsLoggedIn(data[i].name);
+        LoginPage.checkIfCorrectUserIsLoggedIn(data.name);
         MainPage.clickSignOutButton();
-      }
+      });
     })
   })
 })

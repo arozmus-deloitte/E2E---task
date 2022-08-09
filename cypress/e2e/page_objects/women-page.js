@@ -29,7 +29,7 @@ export class WomenPage {
     static addElementToCartByIdAndGetPrice(productId) {
         let price = Cypress.$(`.product_list > :nth-child(${productId}) .price`);
         cy.get(".product_list > :nth-child(" + productId+ ")").contains('Add to cart').click();
-        console.log(price[0].innerHTML.trim());
+        cy.log(price[0].innerHTML.trim());
         return price[0].innerHTML.trim();
     }
 
